@@ -1,6 +1,7 @@
 import toml
 from jinja2 import Environment, FileSystemLoader
 import pdfkit
+from datetime import date
 
 template_folder = './templates/'
 output_folder = './output/'
@@ -20,13 +21,17 @@ template = env.get_template(template_folder + 'template_01.html')
 with open(template_folder + 'template_01.css', 'r') as f:
     css_content = f.read()
 
+# Get today's date
+today = date.today()
+
 # Render the template with the data from the TOML file and CSS content
 html = template.render(user=data['user'],
                        company=data['company'],
                        items=data['items'],
                        subtotal=subtotal,
                        total=total,
-                       css_content=css_content)
+                       css_content=css_content,
+                       invoice_date=today.strftime("%d-%m-%Y"))
 
 # save the rendered HTML to a file
 with open(output_folder + 'invoice.html', 'w') as f:

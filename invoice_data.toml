@@ -2,7 +2,6 @@
 name = "John Doe"
 address = "123 Anywhere St, City, Country"
 invoice_number = "INV-2023-0001"
-invoice_date = "2023-06-03"
 pan = "ABCDE1234F"
 gst = "27ABCDE1234F1Z5"
 

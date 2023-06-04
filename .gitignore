@@ -4,4 +4,4 @@ personal.toml
 venv
 build
 dist/output/*
-main.spec
+*.spec

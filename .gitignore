@@ -1,3 +1,7 @@
 .idea/
 output/*
 personal.toml
+venv
+build
+dist/output/*
+main.spec

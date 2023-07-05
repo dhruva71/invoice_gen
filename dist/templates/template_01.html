@@ -13,7 +13,7 @@
 <div class="flex-column">
 
     <section>
-        <p>{{ user.name }}</p>
+        <p><span class="bold">{{ user.name }}</span></p>
         <p>{{ user.address }}</p>
     </section>
 
@@ -52,18 +52,26 @@
             <td>{{ loop.index }}</td>
             <td>{{ item.sac_code }}</td>
             <td>{{ item.description }}</td>
-            <td>{{ item.hourly_cost }}</td>
-            <td>{{ item.hours }}</td>
-            <td>{{ item.hourly_cost * item.hours }}</td>
+            {% if item.hourly_cost > 0 %}
+                <td>{{ item.hourly_cost }}</td>
+            {% else %}
+                <td></td>
+            {% endif %}
+            {% if item.hours > 0 %}
+                <td>{{ item.hours }}</td>
+            {% else %}
+                <td></td>
+            {% endif %}
+            <td>Rs {{ item.amount }}</td>
         </tr>
     {% endfor %}
     <tr>
         <td colspan="5">Subtotal</td>
-        <td>{{ subtotal }}</td>
+        <td>Rs {{ subtotal }}</td>
     </tr>
     <tr>
         <td colspan="5">Grand total</td>
-        <td class="bold">{{ total }}</td>
+        <td class="bold">Rs {{ total }}</td>
     </tr>
     </tbody>
 </table>

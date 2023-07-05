@@ -26,9 +26,11 @@ description = "Designing a website"
 sac_code = "998311"
 hourly_cost = 30
 hours = 5
+amount = 0
 
 [[items]]
 description = "Creating a logo"
 sac_code = "998312"
 hourly_cost = 40
 hours = 3
+amount = 0

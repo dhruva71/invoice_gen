@@ -10,7 +10,9 @@ output_folder = './output/'
 data = toml.load('invoice_data.toml')
 
 # Calculate subtotal and total
-subtotal = sum(item['hourly_cost'] * item['hours'] for item in data['items'])
+subtotal = sum(
+    item['amount'] if item['amount'] != 0 else item['hourly_cost'] * item['hours'] for
+    item in data['items'])
 total = subtotal  # Adjust this if you have taxes or other additions/deductions
 
 # Load the Jinja2 template

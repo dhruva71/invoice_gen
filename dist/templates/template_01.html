@@ -26,7 +26,7 @@
 
 <section>
     <h3 class="bg-grey">Invoice to:</h3>
-    <p>{{ company.name }}</p>
+    <p><span class="bold">{{ company.name }}</span></p>
     <p>{{ company.address }}</p>
     <p><span class="bold">Contact Person:</span> {{ company.contact_person }}</p>
     <p><span class="bold">Contact Number:</span> {{ company.contact_number }}</p>
@@ -48,14 +48,14 @@
     </thead>
     <tbody>
     {% for item in items %}
-    <tr>
-        <td>{{ loop.index }}</td>
-        <td>{{ item.sac_code }}</td>
-        <td>{{ item.description }}</td>
-        <td>{{ item.hourly_cost }}</td>
-        <td>{{ item.hours }}</td>
-        <td>{{ item.hourly_cost * item.hours }}</td>
-    </tr>
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ item.sac_code }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.hourly_cost }}</td>
+            <td>{{ item.hours }}</td>
+            <td>{{ item.hourly_cost * item.hours }}</td>
+        </tr>
     {% endfor %}
     <tr>
         <td colspan="5">Subtotal</td>

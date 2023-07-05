@@ -5,4 +5,4 @@ venv
 build
 dist/output/*
 *.spec
-dist/invoice_gen.out
+dist/invoice_gen*

@@ -3,8 +3,7 @@ name = "invoice-gen"
 version = "0.1.0"
 description = ""
 authors = ["Dhruvajyoti Sarma <onlinedhruva71@gmail.com>"]
-readme = "README.md"
-packages = [{include = "invoice_gen"}]
+readme = "readme.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -6,4 +6,4 @@ build
 dist/output/*
 *.spec
 dist/invoice_gen*
-dist/invoice_data.toml
+dist/*.toml

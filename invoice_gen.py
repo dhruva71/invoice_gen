@@ -2,13 +2,19 @@ import toml
 from jinja2 import Environment, FileSystemLoader
 import pdfkit
 from datetime import date
+import argparse
+
+# Initialize argument parser
+parser = argparse.ArgumentParser(description='Generate PDF invoice from TOML data.')
+parser.add_argument('toml_file', type=str, help='Path to the TOML file containing invoice data.')
+parser.add_argument('output_filename', type=str, help='Name of the output PDF file.')
+args = parser.parse_args()
 
 template_folder = './templates/'
 output_folder = './output/'
-output_filename = 'invoice.pdf'
 
 # Load the data from the TOML file
-data = toml.load('invoice_data.toml')
+data = toml.load(args.toml_file)
 
 # Calculate subtotal and total
 subtotal = sum(
@@ -36,9 +42,9 @@ html = template.render(user=data['user'],
                        css_content=css_content,
                        invoice_date=today.strftime("%d-%m-%Y"))
 
-# save the rendered HTML to a file
+# Save the rendered HTML to a file
 with open(output_folder + 'invoice.html', 'w') as f:
     f.write(html)
 
 # Convert the HTML to PDF using pdfkit
-pdfkit.from_string(html, output_folder + output_filename)
+pdfkit.from_string(html, output_folder + args.output_filename)

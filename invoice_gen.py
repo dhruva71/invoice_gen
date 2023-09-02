@@ -5,6 +5,7 @@ from datetime import date
 
 template_folder = './templates/'
 output_folder = './output/'
+output_filename = 'invoice.pdf'
 
 # Load the data from the TOML file
 data = toml.load('invoice_data.toml')
@@ -40,4 +41,4 @@ with open(output_folder + 'invoice.html', 'w') as f:
     f.write(html)
 
 # Convert the HTML to PDF using pdfkit
-pdfkit.from_string(html, output_folder + 'invoice.pdf')
+pdfkit.from_string(html, output_folder + output_filename)
